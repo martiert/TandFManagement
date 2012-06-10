@@ -1,0 +1,11 @@
+#ifndef TANDFCOMPETITIONMANAGER_H_INCLUDED
+#define TANDFCOMPETITIONMANAGER_H_INCLUDED
+
+namespace TandF
+{
+    class Competition
+    {
+    };
+}
+
+#endif // TANDFCOMPETITIONMANAGER_H_INCLUDED

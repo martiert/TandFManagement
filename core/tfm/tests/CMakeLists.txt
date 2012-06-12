@@ -8,7 +8,7 @@ set(src
     src/competition_tests.cpp
     )
 
-add_executable(managertests ${src})
-target_link_libraries(managertests gtest gtest_main TandFManager)
+add_executable(tfmtests ${src})
+target_link_libraries(tfmtests gtest gtest_main tfm)
 
-add_test(managertests ${CMAKE_BINARY_DIR}/bin/managertests)
+add_test(tfmtests ${CMAKE_BINARY_DIR}/bin/tfmtests)

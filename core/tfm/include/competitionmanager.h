@@ -1,29 +1,40 @@
 #ifndef TANDFCOMPETITIONMANAGER_H_INCLUDED
 #define TANDFCOMPETITIONMANAGER_H_INCLUDED
 
-#include <stdexcept>
 #include <vector>
+#include <memory>
+#include <stdexcept>
 
-typedef unsigned int uint;
+#include <stdint.h>
 
 namespace tfm
 {
-    class Competition
-    {
-public:
-        Competition ();
+  class Event;
 
-        void add_age_class (const uint ageclass);
+  class Competition
+  {
+    public:
+      Competition();
 
-        uint number_of_classes () const;
+      void add_age_class(const uint32_t& age);
+      void add_event(std::shared_ptr<Event> event);
 
-private:
-        std::vector<uint> classes;
+      uint32_t get_number_of_age_groups() const;
+      uint32_t get_number_of_events() const;
 
-public:
-        class age_already_added_exception : public std::exception
-        {};
-    };
+      const std::vector<uint32_t>& get_age_list() const;
+      const std::vector<std::shared_ptr<Event>>& get_event_list() const;
+
+    private:
+      std::vector<uint32_t> age_groups;
+      std::vector<std::shared_ptr<Event>> events;
+
+      bool is_already_added(const uint32_t& age) const;
+
+    public:
+      class age_already_added_exception : public std::exception
+      {};
+  };
 }
 
 #endif // TANDFCOMPETITIONMANAGER_H_INCLUDED

@@ -3,18 +3,49 @@
 #include <algorithm>
 #include <iostream>
 
-tfm::Competition::Competition ()
+namespace tfm
+{
+
+Competition::Competition()
+  : events(0)
 { }
 
-void tfm::Competition::add_age_class (const uint ageclass)
+void Competition::add_age_class(const uint32_t& age)
 {
-    if (std::find (classes.begin (), classes.end (), ageclass) != classes.end ())
-        throw age_already_added_exception ();
+  if (is_already_added(age))
+    throw age_already_added_exception();
 
-    classes.push_back (ageclass);
+  age_groups.push_back(age);
 }
 
-uint tfm::Competition::number_of_classes () const
+void Competition::add_event(std::shared_ptr<Event> event)
 {
-    return classes.size () * 2;
+  events.push_back(event);
+}
+
+uint32_t Competition::get_number_of_age_groups() const
+{
+  return age_groups.size();
+}
+
+uint32_t Competition::get_number_of_events() const
+{
+  return events.size();
+}
+
+const std::vector<uint32_t>& Competition::get_age_list() const
+{
+  return age_groups;
+}
+
+const std::vector<std::shared_ptr<Event>>& Competition::get_event_list() const
+{
+  return events;
+}
+
+bool Competition::is_already_added(const uint32_t& age) const
+{
+  return (std::find(age_groups.begin(), age_groups.end(), age) != age_groups.end());
+}
+
 }

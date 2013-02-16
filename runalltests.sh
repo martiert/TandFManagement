@@ -8,6 +8,9 @@ function check_return_value()
   fi
 }
 
+export CC=clang
+export CXX=clang++
+
 mkdir _build_/test-reports -p
 cd _build_
 cmake ..

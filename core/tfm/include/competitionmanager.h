@@ -35,10 +35,14 @@ private:
     std::vector<std::string> age_groups;
     EventGroupMap eventgroups;
 
-    bool is_already_added(const std::string & age) const;
+    bool age_is_already_added(const std::string & age) const;
+    bool event_is_already_added(const std::string & eventname) const;
 
 public:
     class age_already_added_exception : public std::exception
+    {};
+
+    class group_already_added_exception : public std::exception
     {};
 };
 

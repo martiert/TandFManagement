@@ -100,6 +100,13 @@ TEST_F(CompetitionTests, adding_the_same_age_class_twice_throws_age_already_adde
     EXPECT_THROW(competition.add_age_class("12"), tfm::Competition::age_already_added_exception);
 }
 
+TEST_F(CompetitionTests, adding_group_with_same_name_twice_throws_group_already_added_exception)
+{
+    std::shared_ptr<NamedEvent> run_event2(std::make_shared<NamedEvent>("run"));
+    competition.add_eventgroup(run_event);
+    EXPECT_THROW(competition.add_eventgroup(run_event2), tfm::Competition::group_already_added_exception);
+}
+
 TEST_F(CompetitionTests, adding_three_age_classes_and_a_event_gives_the_event_two_age_groups)
 {
     competition.add_eventgroup(run_event);

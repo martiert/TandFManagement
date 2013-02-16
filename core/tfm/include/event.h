@@ -5,11 +5,13 @@
 
 namespace tfm
 {
-  class Event
-  {
-    public:
-      virtual ~Event() {}
-  };
+
+class Event
+{
+public:
+    virtual ~Event() {}
+};
+
 }
 
 #endif // TANDFEVENT_H_INCLUDED

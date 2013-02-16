@@ -7,16 +7,16 @@ class EmptyEvent : public tfm::Event
 
 class NamedEvent : public tfm::Event
 {
-  public:
+public:
     NamedEvent(std::string name)
-      : name(name)
+        : name(name)
     {}
 
-    std::string get_name()
+    const std::string & get_name() const
     {
-      return name;
+        return name;
     }
-  private:
+private:
     std::string name;
 };
 

@@ -9,32 +9,34 @@
 
 namespace tfm
 {
-  class Event;
 
-  class Competition
-  {
-    public:
-      Competition();
+class Event;
 
-      void add_age_class(const uint32_t& age);
-      void add_event(std::shared_ptr<Event> event);
+class Competition
+{
+public:
+    Competition();
 
-      uint32_t get_number_of_age_groups() const;
-      uint32_t get_number_of_events() const;
+    void add_age_class(const uint32_t & age);
+    void add_event(std::shared_ptr<Event> event);
 
-      const std::vector<uint32_t>& get_age_list() const;
-      const std::vector<std::shared_ptr<Event>>& get_event_list() const;
+    uint32_t get_number_of_age_groups() const;
+    uint32_t get_number_of_events() const;
 
-    private:
-      std::vector<uint32_t> age_groups;
-      std::vector<std::shared_ptr<Event>> events;
+    const std::vector<uint32_t> & get_age_list() const;
+    const std::vector<std::shared_ptr<Event>> & get_event_list() const;
 
-      bool is_already_added(const uint32_t& age) const;
+private:
+    std::vector<uint32_t> age_groups;
+    std::vector<std::shared_ptr<Event>> events;
 
-    public:
-      class age_already_added_exception : public std::exception
-      {};
-  };
+    bool is_already_added(const uint32_t & age) const;
+
+public:
+    class age_already_added_exception : public std::exception
+    {};
+};
+
 }
 
 #endif // TANDFCOMPETITIONMANAGER_H_INCLUDED

@@ -2,6 +2,7 @@
 #define TANDFCOMPETITIONMANAGER_H_INCLUDED
 
 #include <vector>
+#include <map>
 #include <memory>
 #include <stdexcept>
 
@@ -24,11 +25,13 @@ public:
     uint32_t get_number_of_events() const;
 
     const std::vector<uint32_t> & get_age_list() const;
-    const std::vector<std::shared_ptr<Event>> & get_event_list() const;
+
+    std::shared_ptr<Event> & get_event(const std::string & name);
+    std::vector<std::string> get_event_list() const;
 
 private:
     std::vector<uint32_t> age_groups;
-    std::vector<std::shared_ptr<Event>> events;
+    std::map<std::string, std::shared_ptr<Event>> events;
 
     bool is_already_added(const uint32_t & age) const;
 

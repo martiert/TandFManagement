@@ -1,4 +1,5 @@
 #include "competitionmanager.h"
+#include "event.h"
 
 #include <algorithm>
 #include <iostream>
@@ -7,7 +8,6 @@ namespace tfm
 {
 
 Competition::Competition()
-    : events(0)
 { }
 
 void Competition::add_age_class(const uint32_t & age)
@@ -18,9 +18,10 @@ void Competition::add_age_class(const uint32_t & age)
     age_groups.push_back(age);
 }
 
-void Competition::add_event(std::shared_ptr<Event> event)
+void Competition::add_event(EventPtr event)
 {
-    events.push_back(event);
+    std::pair<std::string, EventPtr> eventpair(event->get_name(), event);
+    events.insert(eventpair);
 }
 
 uint32_t Competition::get_number_of_age_groups() const
@@ -38,9 +39,18 @@ const std::vector<uint32_t> & Competition::get_age_list() const
     return age_groups;
 }
 
-const std::vector<std::shared_ptr<Event>>& Competition::get_event_list() const
+EventPtr & Competition::get_event(const std::string & name)
 {
-    return events;
+    return events[name];
+}
+
+std::vector<std::string> Competition::get_event_list() const
+{
+    std::vector<std::string> event_names;
+    for (auto eventpair : events) {
+        event_names.push_back(eventpair.first);
+    }
+    return event_names;
 }
 
 bool Competition::is_already_added(const uint32_t & age) const

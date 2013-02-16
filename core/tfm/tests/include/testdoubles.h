@@ -3,6 +3,17 @@
 
 class EmptyEvent : public tfm::Event
 {
+public:
+    EmptyEvent()
+        : name("Empty")
+    {}
+
+    const std::string & get_name() const
+    {
+        return name;
+    }
+private:
+    std::string name;
 };
 
 class NamedEvent : public tfm::Event

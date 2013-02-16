@@ -11,7 +11,7 @@
 namespace tfm
 {
 
-class Event;
+class EventGroup;
 
 class Competition
 {
@@ -19,19 +19,21 @@ public:
     Competition();
 
     void add_age_class(const std::string & age);
-    void add_event(std::shared_ptr<Event> event);
+    void add_eventgroup(std::shared_ptr<EventGroup> eventgroup);
 
     uint32_t get_number_of_age_groups() const;
-    uint32_t get_number_of_events() const;
+    uint32_t get_number_of_eventgroups() const;
 
     const std::vector<std::string> & get_age_list() const;
 
-    std::shared_ptr<Event> & get_event(const std::string & name);
-    std::vector<std::string> get_event_list() const;
+    std::shared_ptr<EventGroup> & get_eventgroup(const std::string & name);
+    std::vector<std::string> get_eventgroup_list() const;
 
 private:
+    typedef std::map<std::string, std::shared_ptr<EventGroup>> EventGroupMap;
+
     std::vector<std::string> age_groups;
-    std::map<std::string, std::shared_ptr<Event>> events;
+    EventGroupMap eventgroups;
 
     bool is_already_added(const std::string & age) const;
 

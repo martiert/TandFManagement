@@ -5,6 +5,7 @@ include_directories(include ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 set(src
     src/competitionmanager.cpp
+    src/eventgroup.cpp
   )
 
 add_library(tfm SHARED ${src})

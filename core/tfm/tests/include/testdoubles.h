@@ -1,7 +1,7 @@
 #ifndef TESTDOUBLES_H_INCLUDED
 #define TESTDOUBLES_H_INCLUDED
 
-class EmptyEvent : public tfm::Event
+class EmptyEvent : public tfm::EventGroup
 {
 public:
     EmptyEvent()
@@ -16,7 +16,7 @@ private:
     std::string name;
 };
 
-class NamedEvent : public tfm::Event
+class NamedEvent : public tfm::EventGroup
 {
 public:
     NamedEvent(std::string name)

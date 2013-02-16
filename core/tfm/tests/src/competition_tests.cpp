@@ -35,7 +35,7 @@ TEST_F(CompetitionTests, initialy_a_competition_have_zero_events)
 
 TEST_F(CompetitionTests, adding_one_age_class_makes_the_number_age_groups_one)
 {
-    competition.add_age_class(12);
+    competition.add_age_class("12");
 
     EXPECT_EQ(1, competition.get_number_of_age_groups());
 }
@@ -50,14 +50,14 @@ TEST_F(CompetitionTests, adding_one_event_make_the_number_of_events_one)
 
 TEST_F(CompetitionTests, querying_for_ages_gives_a_list_of_ages)
 {
-    competition.add_age_class(12);
-    competition.add_age_class(13);
-    competition.add_age_class(14);
+    competition.add_age_class("12");
+    competition.add_age_class("13");
+    competition.add_age_class("14");
 
     auto agelist = competition.get_age_list();
-    EXPECT_EQ(12, agelist[0]);
-    EXPECT_EQ(13, agelist[1]);
-    EXPECT_EQ(14, agelist[2]);
+    EXPECT_EQ("12", agelist[0]);
+    EXPECT_EQ("13", agelist[1]);
+    EXPECT_EQ("14", agelist[2]);
 }
 
 TEST_F(CompetitionTests, querying_for_an_event_gives_a_shared_pointer_to_that_event)
@@ -87,6 +87,6 @@ TEST_F(CompetitionTests, querying_for_a_list_of_events_returns_a_list_of_the_add
 
 TEST_F(CompetitionTests, adding_the_same_age_class_twice_throws_age_already_added_exception)
 {
-    competition.add_age_class(12);
-    EXPECT_THROW(competition.add_age_class(12), tfm::Competition::age_already_added_exception);
+    competition.add_age_class("12");
+    EXPECT_THROW(competition.add_age_class("12"), tfm::Competition::age_already_added_exception);
 }

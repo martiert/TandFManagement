@@ -10,7 +10,7 @@ namespace tfm
 Competition::Competition()
 { }
 
-void Competition::add_age_class(const uint32_t & age)
+void Competition::add_age_class(const std::string & age)
 {
     if (is_already_added(age))
         throw age_already_added_exception();
@@ -34,7 +34,7 @@ uint32_t Competition::get_number_of_events() const
     return events.size();
 }
 
-const std::vector<uint32_t> & Competition::get_age_list() const
+const std::vector<std::string> & Competition::get_age_list() const
 {
     return age_groups;
 }
@@ -53,7 +53,7 @@ std::vector<std::string> Competition::get_event_list() const
     return event_names;
 }
 
-bool Competition::is_already_added(const uint32_t & age) const
+bool Competition::is_already_added(const std::string & age) const
 {
     return (std::find(age_groups.begin(), age_groups.end(), age) != age_groups.end());
 }

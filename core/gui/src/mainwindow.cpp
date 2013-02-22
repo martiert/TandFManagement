@@ -2,7 +2,7 @@
 #include "menubar.h"
 
 MainWindow::MainWindow()
-    : menubar(new MenuBar(this))
+    : menubar(std::make_shared<MenuBar>(this))
 {
 }
 

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <memory>
+
 class MenuBar;
 
 class MainWindow : public QMainWindow
@@ -22,7 +24,7 @@ public slots:
     void showAbout();
 
 private:
-    MenuBar * menubar;
+    std::shared_ptr<MenuBar> menubar;
 };
 
 #endif

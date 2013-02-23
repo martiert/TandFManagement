@@ -6,6 +6,8 @@
 #include <memory>
 
 class MenuBar;
+class StartupScreen;
+class AboutDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -20,11 +22,14 @@ protected:
 public slots:
     void newCompetition();
     void loadCompetition();
+    void saveCompetition();
     void showHelp();
     void showAbout();
 
 private:
     std::shared_ptr<MenuBar> menubar;
+    std::shared_ptr<StartupScreen> startupScreen;
+    std::shared_ptr<AboutDialog> aboutDialog;
 };
 
 #endif

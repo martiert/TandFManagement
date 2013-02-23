@@ -21,9 +21,11 @@ private:
 
     std::shared_ptr<QAction> newCompetitionAction;
     std::shared_ptr<QAction> loadCompetitionAction;
+    std::shared_ptr<QAction> saveCompetitionAction;
     std::shared_ptr<QAction> quitAction;
     std::shared_ptr<QAction> helpAction;
     std::shared_ptr<QAction> aboutAction;
+    std::shared_ptr<QAction> aboutQtAction;
 
     std::shared_ptr<QMenuBar> menubar;
 };

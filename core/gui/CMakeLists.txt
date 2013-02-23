@@ -9,13 +9,11 @@ set(src
     src/main.cpp
     src/mainwindow.cpp
     src/menubar.cpp
-    src/aboutdialog.cpp
   )
 
 set(headers
     include/mainwindow.h
     include/menubar.h
-    include/aboutdialog.h
     )
 
 set(resources

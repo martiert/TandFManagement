@@ -7,7 +7,6 @@
 
 class MenuBar;
 class StartupScreen;
-class AboutDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -29,7 +28,6 @@ public slots:
 private:
     std::shared_ptr<MenuBar> menubar;
     std::shared_ptr<StartupScreen> startupScreen;
-    std::shared_ptr<AboutDialog> aboutDialog;
 };
 
 #endif

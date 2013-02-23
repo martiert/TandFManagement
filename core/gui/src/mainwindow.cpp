@@ -1,15 +1,13 @@
 #include "mainwindow.h"
 #include "menubar.h"
 #include "startupscreen.h"
-#include "aboutdialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
 
 MainWindow::MainWindow()
     : menubar(std::make_shared<MenuBar>(this)),
-      startupScreen(std::make_shared<StartupScreen>()),
-      aboutDialog(std::make_shared<AboutDialog>(this))
+      startupScreen(std::make_shared<StartupScreen>())
 {
 }
 
@@ -40,7 +38,11 @@ void MainWindow::showHelp()
 
 void MainWindow::showAbout()
 {
-    aboutDialog->show();
-    aboutDialog->raise();
-    aboutDialog->activateWindow();
+    QMessageBox::about(this, tr("About Track and Field Management"),
+            tr("<h3>About</h3>"
+              "<p>This is Track and Field Management system<br/>"
+              "A program which lets you manage your track and field competitions"
+              "<p>This program is licensed under the LGPLv2.1<br/>"
+              "Please refer to <a href=http://www.gnu.org/licenses/lgpl-2.1.html>http://www.gnu.org/licenses/lgpl-2.1.html</a> for questions about the license"
+              "<p>Copyright &copy; 2013 Martin Ertsaas"));
 }

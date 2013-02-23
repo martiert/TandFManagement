@@ -1,5 +1,6 @@
 #include "aboutdialog.h"
 
+#include <QDebug>
 #include <QPushButton>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -15,6 +16,9 @@ AboutDialog::AboutDialog(QWidget * parent)
       labelLayout(std::make_shared<QVBoxLayout>()),
       buttonLayout(std::make_shared<QHBoxLayout>())
 {
+    textLabel->setTextFormat(Qt::RichText);
+    textLabel->setOpenExternalLinks(true);
+
     connect(okButton.get(), SIGNAL(clicked()), this, SLOT(accept()));
 
     setupLayouts();
@@ -47,13 +51,10 @@ void AboutDialog::addLayouts()
 
 QString AboutDialog::getDialogContent() const
 {
-    return tr("About\n"
-              "\n"
-              "This is Track and Field Management system\n"
-              "A program which lets you manage your track and field competitions\n"
-              "\n"
-              "This program is licensed under the LGPLv2.1\n"
-              "Please refer to http://www.gnu.org/licenses/lgpl-2.1.html for questions about the license\n"
-              "\n"
-              "Copyright \x00A9 2013 Martin Ertsaas\n");
+    return tr("<h3>About</h3>"
+              "<p>This is Track and Field Management system<br/>"
+              "A program which lets you manage your track and field competitions"
+              "<p>This program is licensed under the LGPLv2.1<br/>"
+              "Please refer to <a href=http://www.gnu.org/licenses/lgpl-2.1.html>http://www.gnu.org/licenses/lgpl-2.1.html</a> for questions about the license"
+              "<p>Copyright &copy; 2013 Martin Ertsaas");
 }

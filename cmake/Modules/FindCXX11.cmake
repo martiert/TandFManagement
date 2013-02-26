@@ -26,7 +26,6 @@ class Matrix
 {
 public:
     Matrix(int a, int b, int c, int d)
-        : data {a, b, c, d}
     {}
 
 private:
@@ -35,7 +34,7 @@ private:
 
 int main()
 {
-    int n[] {4,7,6,1,2};
+    int n[] = [4,7,6,1,2];
     for (auto i : n)
         Matrix mat (3,5,1,2);
     return 0;

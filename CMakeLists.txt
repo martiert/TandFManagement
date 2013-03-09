@@ -37,5 +37,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX11_FLAGS}")
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/include)
 set(TandFManagement_INCLUDE_DIR "${CMAKE_BINARY_DIR}/include")
 
-add_subdirectory(tools)
 add_subdirectory(core)
+add_subdirectory(cpputest)

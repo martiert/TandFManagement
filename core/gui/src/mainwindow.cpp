@@ -4,15 +4,13 @@
 
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QSettings>
 
 MainWindow::MainWindow()
     : menubar(std::make_shared<MenuBar>(this)),
       startupScreen(std::make_shared<StartupScreen>())
 {
-}
-
-void MainWindow::closeEvent(QCloseEvent * event)
-{
+    readSettings();
 }
 
 void MainWindow::newCompetition()
@@ -45,4 +43,21 @@ void MainWindow::showAbout()
               "<p>This program is licensed under the LGPLv2.1<br/>"
               "Please refer to <a href=http://www.gnu.org/licenses/lgpl-2.1.html>http://www.gnu.org/licenses/lgpl-2.1.html</a> for questions about the license"
               "<p>Copyright &copy; 2013 Martin Ertsaas"));
+}
+
+void MainWindow::closeEvent(QCloseEvent * event)
+{
+    writeSettings();
+}
+
+void MainWindow::readSettings()
+{
+    QSettings settings("TrackAndField", "Management");
+    restoreGeometry(settings.value("geometry").toByteArray());
+}
+
+void MainWindow::writeSettings()
+{
+    QSettings settings("TrackAndField", "Management");
+    settings.setValue("geometry", saveGeometry());
 }

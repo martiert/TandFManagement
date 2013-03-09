@@ -19,4 +19,4 @@ check_return_value $?
 make -j8
 check_return_value $?
 
-./bin/tfmtests --gtest_output=xml:test-reports/tfmtests.xml
+./bin/tfmtests

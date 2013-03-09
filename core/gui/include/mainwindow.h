@@ -15,9 +15,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
 
-protected:
-    void closeEvent(QCloseEvent * event);
-
 public slots:
     void newCompetition();
     void loadCompetition();
@@ -26,6 +23,10 @@ public slots:
     void showAbout();
 
 private:
+    void closeEvent(QCloseEvent * event);
+    void readSettings();
+    void writeSettings();
+
     std::shared_ptr<MenuBar> menubar;
     std::shared_ptr<StartupScreen> startupScreen;
 };

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "menubar.h"
 #include "startupscreen.h"
+#include "competitionpage.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -8,19 +9,23 @@
 
 MainWindow::MainWindow()
     : menubar(new MenuBar(this)),
-      startupScreen(new StartupScreen())
+      startupScreen(new StartupScreen),
+      competitionPage(new CompetitionPage(this))
 {
     readSettings();
 }
 
 MainWindow::~MainWindow()
 {
+    delete competitionPage;
     delete startupScreen;
     delete menubar;
 }
 
 void MainWindow::newCompetition()
 {
+    setCentralWidget(competitionPage);
+    competitionPage->show();
 }
 
 void MainWindow::loadCompetition()

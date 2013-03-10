@@ -5,6 +5,7 @@
 
 class MenuBar;
 class StartupScreen;
+class CompetitionPage;
 
 class MainWindow : public QMainWindow
 {
@@ -28,6 +29,7 @@ private:
 
     MenuBar * menubar;
     StartupScreen * startupScreen;
+    CompetitionPage * competitionPage;
 };
 
 #endif

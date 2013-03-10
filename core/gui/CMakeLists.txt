@@ -8,11 +8,13 @@ include_directories(include ${CMAKE_CURRENT_BINARY_DIR}/include)
 set(src
     src/main.cpp
     src/mainwindow.cpp
+    src/competitionpage.cpp
     src/menubar.cpp
   )
 
 set(headers
     include/mainwindow.h
+    include/competitionpage.h
     include/menubar.h
     )
 

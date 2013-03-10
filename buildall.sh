@@ -19,4 +19,4 @@ check_return_value $?
 make -j8
 check_return_value $?
 
-./bin/tfmtests
+./bin/tfmtests -ojunit

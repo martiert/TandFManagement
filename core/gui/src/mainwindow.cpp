@@ -7,10 +7,16 @@
 #include <QSettings>
 
 MainWindow::MainWindow()
-    : menubar(std::make_shared<MenuBar>(this)),
-      startupScreen(std::make_shared<StartupScreen>())
+    : menubar(new MenuBar(this)),
+      startupScreen(new StartupScreen())
 {
     readSettings();
+}
+
+MainWindow::~MainWindow()
+{
+    delete startupScreen;
+    delete menubar;
 }
 
 void MainWindow::newCompetition()

@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 
-#include <memory>
-
 class MenuBar;
 class StartupScreen;
 
@@ -14,6 +12,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow();
+    ~MainWindow();
 
 public slots:
     void newCompetition();
@@ -27,8 +26,8 @@ private:
     void readSettings();
     void writeSettings();
 
-    std::shared_ptr<MenuBar> menubar;
-    std::shared_ptr<StartupScreen> startupScreen;
+    MenuBar * menubar;
+    StartupScreen * startupScreen;
 };
 
 #endif

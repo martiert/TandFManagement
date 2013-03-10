@@ -1,8 +1,6 @@
 #ifndef MENU_BAR_H
 #define MENU_BAR_H
 
-#include <memory>
-
 class MainWindow;
 class QAction;
 class QMenuBar;
@@ -11,6 +9,7 @@ class MenuBar
 {
 public:
     MenuBar(MainWindow * mainwindow);
+    ~MenuBar();
 
 private:
     void setupActions();
@@ -19,15 +18,15 @@ private:
 private:
     MainWindow * mainwindow;
 
-    std::shared_ptr<QAction> newCompetitionAction;
-    std::shared_ptr<QAction> loadCompetitionAction;
-    std::shared_ptr<QAction> saveCompetitionAction;
-    std::shared_ptr<QAction> quitAction;
-    std::shared_ptr<QAction> helpAction;
-    std::shared_ptr<QAction> aboutAction;
-    std::shared_ptr<QAction> aboutQtAction;
+    QAction * newCompetitionAction;
+    QAction * loadCompetitionAction;
+    QAction * saveCompetitionAction;
+    QAction * quitAction;
+    QAction * helpAction;
+    QAction * aboutAction;
+    QAction * aboutQtAction;
 
-    std::shared_ptr<QMenuBar> menubar;
+    QMenuBar * menubar;
 };
 
 #endif
